@@ -15,7 +15,7 @@ cd ~/Documents/GitHub/PointerServer
 *On Windows*
 
 ```
-cd \Documents\GitHub\PointerServer
+cd Documents\GitHub\PointerServer
 ```
 
 `cd` is `change directory`
@@ -24,11 +24,24 @@ cd \Documents\GitHub\PointerServer
 
 **Step 4**: Install `virtualenv`
 
+*On Mac*
+
 ```
 sudo pip install virtualenv
 ```
 
+*On Windows*
+
+```
+pip install virtualenv
+```
+
 If you get an error about not having `pip`, you can install it following the instructions [here](https://pip.pypa.io/en/stable/installing/)
+
+If you get an error about not having `python` while installing `pip`, you can install it following the instructions [here](https://www.python.org/downloads/).
+
+If you still get an error about not having `python` or `pip`, you might have to add `C:\Python27` and `C:\Python27\Scripts` to your environment variables following the instructions [here](https://dev.to/el_joft/installing-pip-on-windows).
+
 
 **Step 5**: Create the virtual environment
 
