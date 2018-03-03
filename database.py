@@ -11,21 +11,22 @@ class Database:
     # A "database" until we have an actual database; connect to the SQL database
     print("Init")
 
-  def create(self, db, lat, long, message):
-#    point = Point(lat, long, message)
+  def create(self, db, lat, lon, message):
+#    point = Point(lat, lon, message)
 #    print("[Database] Created new: " + str(point))
     #self.fakeDatabase.append(point) # Inserts
-    db.execute('insert into points (message, long, lat) values (?, ?, ?)',
-                 [message,long,lat])
+    db.execute('insert into points (message, lon, lat) values (?, ?, ?)',
+                 [message,lon,lat])
     db.commit()
 
 
-  def query(self, db, lat, long, limit=10):
+  def query(self, db, lat, lon, limit=10):
     """Opens a new database connection if there is none yet for the
     current application context.
     """
     # This just converts all the Points to a JSON form before sending it back
-    cur = db.execute('select lat, long, message from points order by id desc') #order by newest to oldest?
+    sqlinput= 'SELECT lat, lon, message WHERE lat BETWEEN {}-5 AND {}+5 AND lon BETWEEN {}-5 and {}+5 FROM points ORDER BY id DESC'.format(lat,lat,lon,lon)
+    cur = db.execute(sqlinput) #order by newest to oldest?
     points = cur.fetchall()
     entries_list = []
     x = 0
