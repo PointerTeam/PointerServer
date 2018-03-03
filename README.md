@@ -90,3 +90,23 @@ PointerServer/   (project folder)
 ├── database.py  (Database where we get the messages)
 └── point.py     (Representation of a message)
 ```
+
+## Setting up SQLite and creating the the database
+
+Install SQLite3: [SQLite3](https://www.sqlite.org/download.html)
+
+To create the databse or to refresh it:
+
+**Step 1**: open your command prompt and go to the PointerServer directory
+
+```
+cd Documents\GitHub\PointerServer
+```
+
+**Step 2**: call SQLite3 and create the database by inputting the following code:
+
+*On Windows*
+```
+sqlite3 database.db < schema.sql
+```
+
