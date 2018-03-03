@@ -5,11 +5,11 @@ Backend for an app that lets you put messages on a map and get messages near you
 
 ## Team members
 
-- 🐶
-- 🐱
+- 🐶 Apoorv @apoorvp16
+- 🐱 Umang Gupta @Umang080799
 - 🐹
 - 🐰 Luana @l398chen
-- 🐼
+- 🐼 Nick @tkfi
 - 🐵 JP @junpark97
 
 
