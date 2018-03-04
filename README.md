@@ -69,7 +69,7 @@ You should see a `Pong!`
 To get messages from the server, send a GET request to `/messages` with the `lat` and `lon` as query parameters:
 
 ```
-curl localhost:5000/messages?lat=123,lon=456
+curl localhost:5000/messages?lat=123&lon=456
 ```
 
 To create a new message, send a POST request to `/messages` with a JSON body with `lat`, `lon`, and `message` specified:
