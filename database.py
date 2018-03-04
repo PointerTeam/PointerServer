@@ -25,8 +25,10 @@ class Database:
     current application context.
     """
     # This just converts all the Points to a JSON form before sending it back
-    sqlinput= 'SELECT lat, lon, message WHERE lat BETWEEN {}-5 AND {}+5 AND lon BETWEEN {}-5 and {}+5 FROM points ORDER BY id DESC'.format(lat,lat,lon,lon)
-    cur = db.execute(sqlinput) #order by newest to oldest?
+    #sqlinput= 'SELECT lat, lon, message FROM points WHERE lat BETWEEN {}-1 AND {} AND lon BETWEEN {}-1 and {} ORDER BY id DESC'.format(lat,lat,lon,lon)
+    lonbound = 1
+    latbound = 1
+    cur = db.execute('SELECT lat, lon, message FROM points WHERE lat BETWEEN (?)-(?) AND (?)+(?) AND lon BETWEEN (?)-(?) and (?)+(?)',[lat,latbound,lat,latbound,lon,lonbound,lon,lonbound])
     points = cur.fetchall()
     entries_list = []
     x = 0

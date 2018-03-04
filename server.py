@@ -26,23 +26,23 @@ def get_sqlite():
 
 db = Database()
 
-# Get messages near the (lat, long)
-# Ex. curl localhost:5000/messages?lat=123,long=456
+# Get messages near the (lat, lon)
+# Ex. curl localhost:5000/messages?lat=123,lon=456
 @app.route('/messages', methods=['GET'])
 def getPoints():
   # We should sanity check here and return error if invalid
   lat = request.args.get('lat', 0)
-  long = request.args.get('long', 0)
+  lon = request.args.get('lon', 0)
 
-  print('[Server] Getting messages for (' + str(lat) + ', ' + str(long) + ')')
-  return str(db.query(get_sqlite(), lat, long))
+  print('[Server] Getting messages for (' + str(lat) + ', ' + str(lon) + ')')
+  return str(db.query(get_sqlite(), lat, lon))
 
 # Create a new message at the location
 @app.route('/messages', methods=['POST'])
 def createPoint():
   # We should sanity check the JSON here before adding to the database
   print(request.json)
-  db.create(get_sqlite(), request.json['lat'], request.json['long'], request.json['message'])
+  db.create(get_sqlite(), request.json['lat'], request.json['lon'], request.json['message'])
   return 'Successfully created message'
 
 # Test to see if the server is up

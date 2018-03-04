@@ -1,1 +1,1 @@
-drop table if exists entries;create table points (  id integer primary key autoincrement,  message text not null,  long real not null,  lat real not null);
+drop table if exists entries;create table points (  id integer primary key autoincrement,  message text not null,  lon real not null,  lat real not null);

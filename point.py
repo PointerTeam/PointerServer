@@ -2,19 +2,19 @@
 
 class Point:
 
-  def __init__(self, lat, long, message):
+  def __init__(self, lat, lon, message):
     self.lat = lat
-    self.long = long
+    self.lon = lon
     self.message = message
 
   def __str__(self):
-    return "Point(" + str(self.lat) + ", " + str(self.long) + "; " + self.message + ")"
+    return "Point(" + str(self.lat) + ", " + str(self.lon) + "; " + self.message + ")"
 
   def toJSON(self):
     return {
       'location': {
         'lat': self.lat,
-        'long': self.long
+        'lon': self.lon
       },
       'message': self.message
     }
