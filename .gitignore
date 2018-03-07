@@ -101,4 +101,4 @@ ENV/
 .mypy_cache/
 
 # The SQL database
-database.db
+*.db
