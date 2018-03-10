@@ -36,7 +36,7 @@ class Database:
         entries_list = []
         x = 0
         while x < len(point):
-            entries_list.append(str(Point(point[x][0],point[x][1],point[x][2])))
+            entries_list.append(Point(point[x][0],point[x][1],point[x][2]).toJSON())
             x = x + 1
         return entries_list
     return loop_1(points)

@@ -6,6 +6,7 @@ from flask import Flask, request, g
 import json
 from point import Point
 from database import Database
+import json
 
 app = Flask(__name__)
 app.config.from_object(__name__) # load config from this file  ****
@@ -35,7 +36,7 @@ def getPoints():
   lon = float(request.args.get('lon', 0))
 
   print('[Server] Getting messages for (' + str(lat) + ', ' + str(lon) + ')')
-  return str(db.query(get_sqlite(), lat, lon))
+  return json.dumps(db.query(get_sqlite(), lat, lon))
 
 # Create a new message at the location
 @app.route('/messages', methods=['POST'])
