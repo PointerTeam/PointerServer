@@ -28,7 +28,7 @@ class Database:
     #sqlinput= 'SELECT lat, lon, message FROM points WHERE lat BETWEEN {}-1 AND {} AND lon BETWEEN {}-1 and {} ORDER BY id DESC'.format(lat,lat,lon,lon)
     lonbound = 1
     latbound = 1
-    cur = db.execute('SELECT lat, lon, message FROM points WHERE lat BETWEEN (?)-(?) AND (?)+(?) AND lon BETWEEN (?)-(?) and (?)+(?)',[lat,latbound,lat,latbound,lon,lonbound,lon,lonbound])
+    cur = db.execute('SELECT lat, lon, message FROM points WHERE lat BETWEEN (?) AND (?) AND lon BETWEEN (?) and (?)',[lat - latbound, lat + latbound, lon - lonbound, lon + lonbound])
     points = cur.fetchall()
     entries_list = []
     x = 0
