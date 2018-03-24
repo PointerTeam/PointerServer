@@ -28,7 +28,7 @@ class Database:
     #sqlinput= 'SELECT lat, lon, message FROM points WHERE lat BETWEEN {}-1 AND {} AND lon BETWEEN {}-1 and {} ORDER BY id DESC'.format(lat,lat,lon,lon)
     lonbound = 1
     latbound = 1
-    cur = db.execute('SELECT lat, lon, message FROM points WHERE lat BETWEEN (?)-(?) AND (?)+(?) AND lon BETWEEN (?)-(?) and (?)+(?)',[lat,latbound,lat,latbound,lon,lonbound,lon,lonbound])
+    cur = db.execute('SELECT lat, lon, message FROM points WHERE lat BETWEEN (?) AND (?) AND lon BETWEEN (?) and (?)',[lat - latbound, lat + latbound, lon - lonbound, lon + lonbound])
     points = cur.fetchall()
     entries_list = []
     x = 0
@@ -36,7 +36,7 @@ class Database:
         entries_list = []
         x = 0
         while x < len(point):
-            entries_list.append(str(Point(point[x][0],point[x][1],point[x][2])))
+            entries_list.append(Point(point[x][0],point[x][1],point[x][2]).toJSON())
             x = x + 1
         return entries_list
     return loop_1(points)
