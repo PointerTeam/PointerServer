@@ -2,14 +2,14 @@
 
 Backend for an app that lets you put messages on a map and get messages near you
 
+![](https://github.com/PointerTeam/PointerApp/raw/master/Screenshot.png)
+
+Video demo: [https://www.youtube.com/watch?v=lAqzTX5RzQg](https://www.youtube.com/watch?v=lAqzTX5RzQg)
+
 
 ## Team members
 
-- 🐶
-- 🐱
-- 🐹
 - 🐰 Luana @l398chen
-- 🐼
 - 🐵 JP @junpark97
 
 
@@ -66,6 +66,8 @@ You should see a `Pong!`
 
 ## Testing the APIs
 
+*On Mac/Linux*
+
 To get messages from the server, send a GET request to `/messages` with the `lat` and `lon` as query parameters:
 
 ```
@@ -77,6 +79,8 @@ To create a new message, send a POST request to `/messages` with a JSON body wit
 ```
 curl localhost:5000/messages -X POST -H "Content-Type: application/json" -d '{"lat": 123, "lon": 456, "message": "My message"}'
 ```
+
+*On Windows or Mac/Linux/Anything with Chrome*
 
 You can also use [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) instead to get a pretty UI :)
 
@@ -109,6 +113,3 @@ cd Documents\GitHub\PointerServer
 ```
 sqlite3 database.db < schema.sql
 ```
-
-
-
